@@ -2,6 +2,9 @@
 
 namespace LinkedList
 {
+    /// <summary>
+    /// Implementation of a LinkedList
+    /// </summary>
     public class LinkedList
     {
         //Reference to the first element in the list

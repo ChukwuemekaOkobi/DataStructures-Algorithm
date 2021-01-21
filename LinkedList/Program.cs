@@ -49,9 +49,6 @@ namespace LinkedList
             Console.WriteLine("Last Value is {0}", List.Last.Value);
             List.PrintAll();
             Console.WriteLine("Hello World!");
-
-            LinkedList<int> dfa = new LinkedList<int>(); 
-
             
         }
     }
