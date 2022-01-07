@@ -5,111 +5,182 @@ namespace DataStructures
     /// <summary>
     /// Implementation of a Singly LinkedList
     /// </summary>
-    /// 
-
-    public class SSingleLinkedList
-    {
-        public LinkedListNode First { get; private set; }
-        public LinkedListNode Last { get; private set; }
-
-
-        //holds the count of the values in the sequence
-        public int Count { get; private set; }
-       
-
-    }
 
     public class SingleLinkedList
     {
         public LinkedListNode First { get; private set; }
         public LinkedListNode Last { get; private set; }
 
+
         //holds the count of the values in the sequence
         public int Count { get; private set; }
 
-        
+
         public void AddFirst(int item)
         {
-            LinkedListNode node = new LinkedListNode(item); 
-            if(IsEmpty())
+            var hold = new LinkedListNode(item);
+
+            if (IsEmpty())
             {
-                First = Last = node; 
+                First = Last = hold;
+                Count++;
+                return;
             }
-            else
-            {
-                node.Next = First;
-                First = node;
-            }
-            Count++; 
+
+            hold.Next = First;
+
+            First = hold;
+
+            Count++;
+
+            return;
 
         }
 
         public void AddLast(int item)
         {
-            var node = new LinkedListNode(item);
+            var hold = new LinkedListNode(item);
+
             if (IsEmpty())
             {
-                First = Last = node;
+                First = Last = hold;
+                Count++;
+                return;
             }
-            else
-            {
-                Last.Next = node;
-                Last = node; 
-                
-            }
+
+            Last.Next = hold;
+
+            Last = hold;
             Count++;
+
+            return;
         }
 
+        public int IndexOf(int item)
+        {
+            var hold = First;
+            int index = 0; 
+            while (hold != null)
+            {
+                if(hold.Value == item)
+                {
+                    return index;
+                }
+                index++;
+                hold = hold.Next;
+            }
+            return -1;
+        }
+
+       
         public void RemoveFirst()
         {
-            if(IsEmpty())
+            if (IsEmpty())
             {
-                return; 
+                return;
             }
+            if(Count == 1)
+            {
+                First = Last = null;
+                Count--;
+                return;
+            }
+            var hold = First.Next;
 
-            if(First == Last)
-            {
-                First = Last = null; 
-            }
-            else
-            {
-                var hold = First.Next;
-                First.Next = null;
-                First = hold;
-            }
-    
+            First = hold;
+            Count--;
 
-            Count--; 
         }
 
         public void RemoveLast()
         {
-            if(IsEmpty())
+            if (IsEmpty())
             {
-                return; 
+                return;
+            }
+            if(Count == 1)
+            {
+                First = Last = null;
+                Count--;
+                return;
             }
 
-            if(Last == First)
+            var hold = First; 
+
+            while (hold.Next != Last)
             {
-                Last = First = null; 
-            }else
+                hold = hold.Next;
+            }
+            Last = hold;
+            Last.Next = null;
+        }
+
+        public void AddBefore(int index, int item)
+        {
+            if (index > Count - 1)
             {
-                var previous = GetPreviousNode(Last);
-                if(previous == null)
-                {
-                    return; 
-                }
-                Last = previous;
-                Last.Next = null;
-               
+                throw new IndexOutOfRangeException();
             }
 
-            Count--; 
+            var hold = new LinkedListNode(item);
+
+            if (index == 0)
+            {
+                AddFirst(item);
+                return;
+            }
+
+            int count = 1;
+
+            var previous = First;
+            
+            while (count != index)
+            {
+                previous = previous.Next;
+                count++;
+            }
+
+
+            hold.Next = previous.Next;
+            previous.Next = hold;
+            Count++; 
+
+        }
+
+        public void AddAfter(int index, int item)
+        {
+
+            if (index > Count - 1)
+            {
+                throw new IndexOutOfRangeException();
+            }
+
+            var hold = new LinkedListNode(item);
+
+            if(index == Count - 1)
+            {
+                AddLast(item);
+                return;
+            }
+
+            int count = 0;
+     
+            var current = First;
+
+            while (count != index)
+            {
+                current = current.Next;
+                count++;
+            }
+
+            hold.Next = current.Next;
+            current.Next = hold;
+            Count++;
         }
 
         public void AddBefore(LinkedListNode node, int item)
         {
-            if(First == node)
+            if (First == node)
             {
                 AddFirst(item);
 
@@ -128,88 +199,90 @@ namespace DataStructures
                 };
                 previous.Next = NewNode;
             }
-           
 
-            Count++; 
+
+            Count++;
         }
 
         public void AddAfter(LinkedListNode node, int item)
         {
-            if(First == node)
+            if (First == node)
             {
                 AddLast(item);
             }
             else
             {
-                var previous = GetPreviousNode(node); 
+                var previous = GetPreviousNode(node);
 
-                if(previous == null)
-                { return; 
+                if (previous == null)
+                {
+                    return;
                 }
 
-  
+
 
                 var newNode = new LinkedListNode(item)
                 {
-                    Next = node.Next 
+                    Next = node.Next
                 };
 
-                node.Next = newNode; 
+                node.Next = newNode;
 
             }
 
-            Count++; 
-   
+            Count++;
+
 
         }
-        public LinkedListNode FindValue(int value)
+        public void RemoveAt(int index)
         {
+            if (index > Count - 1)
+            {
+                throw new IndexOutOfRangeException();
+            }
+
+            if (index == 0)
+            {
+                RemoveFirst();
+                return;
+            }
+            if(index == Count - 1)
+            {
+                RemoveLast();
+                return;
+            }
+            var previous = First;
+            var current = previous.Next;
+            int count = 1;
+
+            while (count != index)
+            {
+                previous = current;
+                current = current.Next;
+                count++;
+            }
+
+            previous.Next = current.Next;
+            Count--;
+
+        }
+
+        public void Reverse()
+        {
+            if (IsEmpty())
+            {
+                return;
+            }
+            SingleLinkedList newList = new();
             var hold = First;
 
             while (hold != null)
             {
-                if (hold.Value == value)
-                    return hold;
+                newList.AddFirst(hold.Value);
                 hold = hold.Next;
             }
-
-            return null;
-        }
-        public bool Contains(int value)
-        {
-            return IndexOf(value) != -1;
-        }
-
-        public int IndexOf(int value)
-        {
-            int index = 0; 
-            var hold = First; 
-            while (hold!= null)
-            {
-                if (hold.Value == value)
-                {
-                    return index;
-                }
-                hold = hold.Next;
-                index++; 
-            }
-            return -1; 
-        }
-
-        public int[] ToArray()
-        {
-            var array = new int[Count];
-            int index = 0;
-            var hold = First; 
-
-            while(hold != null)
-            {
-                array[index++] = hold.Value;
-
-                hold = hold.Next; 
-            }
-
-            return array;
+            First = newList.First;
+            Last = newList.Last;
         }
 
         public void RemoveLinkedListNode(LinkedListNode LinkedListNode)
@@ -257,59 +330,87 @@ namespace DataStructures
             --Count;
         }
 
-        public void Reverse()
+        public int[] ToArray()
         {
-            if(IsEmpty())
-            {
-                return; 
-            }
+            var newArray = new int[Count];
 
-            SingleLinkedList newList = new();
-            var hold = First; 
-
-            while(hold !=null)
-            {
-                newList.AddFirst(hold.Value);
-                hold = hold.Next; 
-            }
-            First = newList.First;
-            Last = newList.Last;
-        }
-        public void PrintAll()
-        {
             var hold = First;
-            int i = 0;
+
+            var index = 0;
             while (hold != null)
             {
-                Console.WriteLine($"value {++i} is {hold.Value}");
+                newArray[index++] = hold.Value;
                 hold = hold.Next;
             }
-        }
-
-        private LinkedListNode GetPreviousNode(LinkedListNode node)
-        {
-            var current = First; 
-            while(current !=null)
-            {
-                if(current.Next == node)
-                {
-                    return current; 
-                }
-                current = current.Next; 
-            }
-
-            return null; 
+            return newArray;
         }
 
         public int this[int i]
         {
-            get { return i; }
-            set {  i = value; }
+            get { return FindValue(i); }
+            set
+            {
+            }
         }
+
+
+        public bool Contains(int value)
+        {
+            return IndexOf(value) != -1;
+        }
+
+        public void PrintAll()
+        {
+            var hold = First;
+            while (hold != null)
+            {
+                Console.WriteLine(hold.Value);
+                hold = hold.Next;
+            }
+        }
+        
+        private int FindValue(int index)
+        {
+            if (index > Count - 1)
+            {
+                throw new IndexOutOfRangeException();
+            }
+
+
+            var hold = First;
+
+            int count = 0;
+
+            while (count != index)
+            {
+                hold = hold.Next;
+                count++;
+            }
+
+            return hold.Value;
+        }
+        private LinkedListNode GetPreviousNode(LinkedListNode node)
+        {
+            var current = First;
+            while (current != null)
+            {
+                if (current.Next == node)
+                {
+                    return current;
+                }
+                current = current.Next;
+            }
+
+            return null;
+        }
+
+
         private bool IsEmpty()
         {
-            return First == null; 
+            return First == null;
         }
+
+
     }
 
 }

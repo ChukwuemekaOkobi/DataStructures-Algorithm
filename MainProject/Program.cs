@@ -11,7 +11,26 @@ namespace MainProject
         static void Main(string[] args)
         {
 
-           
+            SingleLinkedList list = new SingleLinkedList();
+
+            list.AddLast(23);
+            list.AddLast(45);
+            list.AddLast(34);
+            list.AddLast(87);
+            list.AddLast(14);
+
+            list.PrintAll();
+
+            Console.WriteLine(" ----- " + list.Count);
+
+            list.AddBefore(1, 52);
+    
+
+            list.PrintAll();
+
+            Console.WriteLine(" ----- " + list.Count);
+
+
         }
 
         static bool IsBalanced (string item)
