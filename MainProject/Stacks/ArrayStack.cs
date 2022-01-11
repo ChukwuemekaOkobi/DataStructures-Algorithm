@@ -10,51 +10,49 @@ namespace DataStructures.Stacks
     {
         int[] Items;
 
+        public int Count { get; private set; }
         public ArrayStack()
         {
             Items = new int[10];
-            Count = 0; 
+            Count = 0;
         }
-        public int Count{ get; private set; }
 
         public void Push(int item)
         {
             if(Count == Items.Length)
             {
-                int[] newItems = new int[Count * 2];
+                //create a new Array and copy values 
 
-                for(int i = 0; i<Items.Length; i++)
-                {
-                    newItems[i] = Items[i];
-                }
+                int[] newArray = new int[Count * 2];
 
-                Items = newItems;
+                Items.CopyTo(newArray, 0);
+
+                Items = newArray;
             }
-
-            Items[Count++] = item; 
+            Items[Count++] = item;
         }
+
         public int Pop()
         {
-            if(IsEmpty())
+            if (IsEmpty())
             {
-                throw new IndexOutOfRangeException();
+                throw new  Exception("Stack is Empty");
+                
             }
 
-            int lastItem = Items[Count-1];
-
-            Items[--Count] = 0; 
-
-            return lastItem; 
-             
+           return Items[--Count];
+    
         }
 
         public int Peek()
         {
             if (IsEmpty())
             {
-                throw new IndexOutOfRangeException();
+                throw new Exception("Stack is Empty");
+
             }
-            return Items[Count - 1]; 
+
+            return Items[Count-1];
         }
 
         public bool IsEmpty()
@@ -62,5 +60,23 @@ namespace DataStructures.Stacks
             return Count == 0; 
         }
 
+    }
+
+
+    public class ArrayTwoStack
+    {
+        int[] Items;
+
+
+        public int Count1 { get; private set; }
+        public int Count2 { get; private set; }
+        public ArrayTwoStack()
+        {
+            Items = new int[10];
+            Count1 = 0;
+            Count2 = 0;
+        }
+
+      
     }
 }

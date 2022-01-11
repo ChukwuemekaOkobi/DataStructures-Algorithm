@@ -14,13 +14,8 @@ namespace DataStructures.Stacks
         {
             Items = new SingleLinkedList();
         }
-        public int Count
-        {
-            get
-            {
-                return Items.Count;
-            }
-        }
+        public int Count => Items.Count;
+  
 
 
         public void Push(int item)

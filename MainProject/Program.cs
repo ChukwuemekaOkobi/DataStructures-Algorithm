@@ -88,7 +88,7 @@ namespace MainProject
 
             StringBuilder builder = new();
 
-            while (stack.Count != 0)
+            while (!stack.IsEmpty())
                 builder.Append(stack.Pop());
 
             return builder.ToString(); 
