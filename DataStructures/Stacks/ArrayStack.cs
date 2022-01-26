@@ -58,6 +58,19 @@ namespace DataStructures.Stacks
             return Items[Count-1];
         }
 
+
+        public void Reverse()
+        {
+            int[] newArray = new int[Items.Length]; 
+
+            for(int i = 0; i<Count; i++)
+            {
+                newArray[i] = Items[Count - 1 - i];
+            }
+
+            Items = newArray; 
+        }
+
         public bool IsEmpty()
         {
             return Count == 0; 

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text;
 
 namespace DataStructures
 {
@@ -368,7 +369,26 @@ namespace DataStructures
                 hold = hold.Next;
             }
         }
-        
+
+        public override string ToString()
+        {
+            StringBuilder builder = new();
+
+            builder.Append('[');
+
+
+            var hold = First;
+            while (hold != null)
+            {
+                builder.Append(hold.Value);
+                builder.Append(',');
+                hold = hold.Next;
+            }
+            builder.Append(']');
+
+            return builder.ToString();
+        }
+
         private int FindValue(int index)
         {
             if (index > Count - 1)

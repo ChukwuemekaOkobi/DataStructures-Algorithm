@@ -43,6 +43,11 @@ namespace DataStructures.Stacks
 
             return Items.First.Value; 
         }
+
+        public void Reversed()
+        {
+            Items.Reverse();
+        }
         public bool IsEmpty()
         {
             return Count == 0; 
