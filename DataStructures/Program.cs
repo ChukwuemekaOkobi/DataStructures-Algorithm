@@ -13,7 +13,19 @@ namespace MainProject
     {
         static void Main(string[] args)
         {
-           
+            ArrayQueue queue = new ArrayQueue(9);
+            queue.Enqueue(23);
+            queue.Enqueue(41);
+            queue.Enqueue(52);
+            queue.Enqueue(62);
+            queue.Enqueue(21);
+
+            Console.WriteLine(queue);
+
+            queue.ReverseFirst(8);
+            Console.WriteLine(queue);
+            queue.Enqueue(80);
+            Console.WriteLine(queue);
 
         }
 

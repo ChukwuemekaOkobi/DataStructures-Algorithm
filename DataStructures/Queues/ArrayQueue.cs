@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DataStructures.Stacks;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -30,7 +31,7 @@ namespace DataStructures.Queues
             if (IsFull())
             {
                 //Expand the array
-                //copy values in the right order
+                //copy values in the right order into new Arrays
                 int[] newItems = new int[Count * 2];
 
                 for (int i = 0; i < Count; i++)
@@ -109,6 +110,39 @@ namespace DataStructures.Queues
             Items = newItems;
             firstPointer = 0;
             lastPointer = Count - 1; 
+
+        }
+
+        public void ReverseFirst(int number)
+        {
+            ArrayStack stack = new ArrayStack();
+
+            int index = firstPointer;
+
+            int x = number < Count ? number : Count;
+
+            for(int i = 0; i< x; i++)
+            {
+                stack.Push(Items[index++]);
+                if (index >= Items.Length - 1)
+                {
+                    index = 0;
+                }
+                
+            }
+
+            index = firstPointer;
+
+            while (!stack.IsEmpty())
+            {
+                Items[index++] = stack.Pop();
+                if (index >= Items.Length - 1)
+                {
+                    index = 0;
+                }
+
+            }
+
 
         }
 
