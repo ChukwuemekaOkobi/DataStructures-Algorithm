@@ -1,9 +1,10 @@
 ﻿using DataStructures;
 using DataStructures.LinkedList;
 using DataStructures.Stacks;
-using System;
+using DataStructures.Arrays;
 using System.Collections.Generic;
 using System.Text;
+
 
 namespace MainProject
 {
@@ -12,23 +13,7 @@ namespace MainProject
         static void Main(string[] args)
         {
 
-            DoubleLinkedList list = new ();
-
-            list.AddLast(23);
-            list.AddLast(45);
-            list.AddLast(34);
-            list.AddLast(87);
-            list.AddLast(14);
-
-            list.PrintAll();
-
-            Console.WriteLine(" ----- " + list.Count);
-
-            list.RemoveLast();
-
-            list.PrintAll();
-
-            Console.WriteLine(" ----- " + list.Count);
+  
 
         }
 

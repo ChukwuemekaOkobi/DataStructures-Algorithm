@@ -274,7 +274,7 @@ namespace DataStructures.LinkedList
             {
                 return;
             }
-            SingleLinkedList newList = new();
+            DoubleLinkedList newList = new();
             var hold = First;
 
             while (hold != null)

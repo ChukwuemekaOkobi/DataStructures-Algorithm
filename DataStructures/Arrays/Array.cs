@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DataStructures
+namespace DataStructures.Arrays
 {
     public class Array
     {
@@ -35,7 +35,7 @@ namespace DataStructures
 
         }
 
-        public int length()
+        public int Length()
         {
             return currentIndex;
         }

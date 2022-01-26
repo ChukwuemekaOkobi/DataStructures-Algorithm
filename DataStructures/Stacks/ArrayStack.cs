@@ -1,11 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
-
 using System.Text;
 using System.Threading.Tasks;
 
 namespace DataStructures.Stacks
 {
+
+    /// <summary>
+    /// Implementation of Stack , LIFO Data Structure using and Array
+    /// </summary>
     public class ArrayStack
     {
         int[] Items;
@@ -60,23 +63,26 @@ namespace DataStructures.Stacks
             return Count == 0; 
         }
 
-    }
+       
 
 
-    public class ArrayTwoStack
-    {
-        int[] Items;
-
-
-        public int Count1 { get; private set; }
-        public int Count2 { get; private set; }
-        public ArrayTwoStack()
+        public override string ToString()
         {
-            Items = new int[10];
-            Count1 = 0;
-            Count2 = 0;
+            StringBuilder builder = new();
+
+            builder.Append('[');
+
+            for (var i = 0; i < Count; i++)
+            {
+                builder.Append(Items[i]);
+                if (i != Items.Length - 1)
+                    builder.Append(',');
+            }
+
+            builder.Append(']');
+
+            return builder.ToString();
         }
 
-      
     }
 }
