@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Text;
 using System;
 using DataStructures.Queues;
+using DataStructures.HashTable;
 
 namespace MainProject
 {
@@ -13,22 +14,15 @@ namespace MainProject
     {
         static void Main(string[] args)
         {
-            ArrayQueue queue = new ArrayQueue(9);
-            queue.Enqueue(23);
-            queue.Enqueue(41);
-            queue.Enqueue(52);
-            queue.Enqueue(62);
-            queue.Enqueue(21);
 
-            Console.WriteLine(queue);
 
-            queue.ReverseFirst(8);
-            Console.WriteLine(queue);
-            queue.Enqueue(80);
-            Console.WriteLine(queue);
+            var sentence = "i am a good boy, i hate the cold";
 
+            Console.WriteLine(FirstNoneRepeatingCharacter(sentence));
+            Console.WriteLine(FirstRepeatingCharacter(sentence));
         }
 
+        //Stack Problems
         static bool IsBalanced (string item)
         {
             if(string.IsNullOrWhiteSpace(item))
@@ -89,6 +83,59 @@ namespace MainProject
                 builder.Append(stack.Pop());
 
             return builder.ToString(); 
+        }
+
+        //Hash tables And Set
+        static char FirstNoneRepeatingCharacter(string sentence)
+        {
+            var item = sentence.ToLower();
+            Dictionary<char, int> CharPairs = new Dictionary<char, int>();
+
+
+            foreach(var pair in item)
+            {
+                if (CharPairs.ContainsKey(pair))
+                {
+                    CharPairs[pair] +=1;
+                }
+                else
+                {
+                    CharPairs.Add(pair, 1);
+                }
+            }
+       
+            foreach(var pair in item)
+            {
+                if(CharPairs[pair] == 1)
+                {
+                    return pair;
+                }
+            }
+
+            return char.MinValue;
+            
+        }
+
+        static char FirstRepeatingCharacter(string sentence)
+        {
+            var item = sentence.ToLower();
+     
+
+            var Sets = new HashSet<char>();
+
+            foreach (var pair in item)
+            {
+                if (Sets.Contains(pair))
+                {
+                    return pair;
+                }
+                else
+                {
+                    Sets.Add(pair);
+                }
+            }
+
+            return char.MinValue;
         }
     }
 }
