@@ -10,4 +10,13 @@ There are used to solve different problems
 - LinkedList 
 - Stack 
 - Queues 
+- HashTable | Dictionary
+
+### Problems And Solution 
+This Section contains difference code problems and solutions 
+- Patterns 
+- Dynamic Programing 
+- Algorithms 
+- Challenges (Random code challenges)
+
 
