@@ -1,4 +1,4 @@
-# Data Structures and Algorithms
+# Data Structures and Algorithms in C-Sharp (C#)
 This repository is dedicated to the implementation of major data structures 
 and algorithms in C-Sharp (C#). 
 It also contains solutions and to code problems where these data structures can be applied 

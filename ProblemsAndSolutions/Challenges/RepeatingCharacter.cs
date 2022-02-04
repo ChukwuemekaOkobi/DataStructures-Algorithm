@@ -6,6 +6,12 @@ using System.Threading.Tasks;
 
 namespace ProblemsAndSolutions.Challenges
 {
+    /// <summary>
+    /// Contains Three Challenges 
+    /// 1. Find the First Non-Repeating or Unique Character in a String 
+    /// 2. Find the First Repeating Character in a String 
+    /// 3. Find the Most Frequency number in an Array
+    /// </summary>
     class RepeatingCharacter
     {
         /// <summary>
@@ -14,7 +20,7 @@ namespace ProblemsAndSolutions.Challenges
         /// </summary>
         /// <param name="sentence"></param>
         /// <returns></returns>
-        static char FirstNoneRepeatingOrUniqueCharacter(string sentence)
+        public char FirstNoneRepeatingOrUniqueCharacter(string sentence)
         {
             var item = sentence.ToLower();
             Dictionary<char, int> CharPairs = new Dictionary<char, int>();
@@ -50,7 +56,7 @@ namespace ProblemsAndSolutions.Challenges
         /// </summary>
         /// <param name="sentence"></param>
         /// <returns></returns>
-        static char FirstRepeatingCharacter(string sentence)
+        public char FirstRepeatingCharacter(string sentence)
         {
             var item = sentence.ToLower();
 
@@ -74,10 +80,12 @@ namespace ProblemsAndSolutions.Challenges
 
         /// <summary>
         /// Most Frequent Number in an Array
+        /// Use Dictionary to keep track of items and their count 
+        /// O(n)
         /// </summary>
         /// <param name="numbers"></param>
         /// <returns></returns>
-        static int MostFrequentNumber(int[] numbers)
+        public int MostFrequentNumber(int[] numbers)
         {
             Dictionary<int, int> numberCount = new Dictionary<int, int>();
 
