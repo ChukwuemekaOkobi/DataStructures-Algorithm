@@ -16,16 +16,33 @@ namespace MainProject
         static void Main(string[] args)
         {
 
-            int[] nums = { 4,1,2,3,5,4,4};
+            int[] nums = { 2,11,78,7};
 
-            
+            Console.WriteLine(isPL(121));
 
         }
 
+        static bool isPL(int x)
+        {
+            if(x < 0)
+            {
+                return false;
+            }
 
-        
+            string num = x.ToString();
 
+            int j = num.Length - 1;
 
+            for(int i = 0; i< num.Length; i++)
+            {
+                if(!(num[i] == num[j--]))
+                {
+                    return false;
+                }
+            }
+
+            return true;
+        }
 
        
 
