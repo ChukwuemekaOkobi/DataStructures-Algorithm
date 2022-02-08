@@ -8,6 +8,7 @@ using DataStructures.Queues;
 using DataStructures.HashTable;
 using System.Linq;
 using System.Diagnostics;
+using DataStructures.Tree;
 
 namespace MainProject
 {
@@ -16,33 +17,22 @@ namespace MainProject
         static void Main(string[] args)
         {
 
-            int[] nums = { 2,11,78,7};
-
-            Console.WriteLine(isPL(121));
+            Console.WriteLine(Factorial(10));
 
         }
 
-        static bool isPL(int x)
+
+        static int Factorial(int num)
         {
-            if(x < 0)
+            if(num > 1)
             {
-                return false;
+                return num * Factorial(--num);
             }
 
-            string num = x.ToString();
-
-            int j = num.Length - 1;
-
-            for(int i = 0; i< num.Length; i++)
-            {
-                if(!(num[i] == num[j--]))
-                {
-                    return false;
-                }
-            }
-
-            return true;
+            return 1;
         }
+
+       
 
        
 

@@ -13,8 +13,4 @@
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
 
-  <ItemGroup>
-    <Folder Include="Tree\" />
-  </ItemGroup>
-
 </Project>

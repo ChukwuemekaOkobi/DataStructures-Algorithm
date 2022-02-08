@@ -16,6 +16,11 @@
             Next = null;
             Previous = null; 
         }
+
+        public override string ToString()
+        {
+            return $"Node = {Value}";
+        }
     }
 
 
