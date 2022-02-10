@@ -17,19 +17,34 @@ namespace MainProject
         static void Main(string[] args)
         {
 
-            Console.WriteLine(Factorial(10));
+            BinaryTree tree = new BinaryTree();
 
+            tree.Insert(7);
+            tree.Insert(4);
+            tree.Insert(9);
+            tree.Insert(1);
+            tree.Insert(6);
+            tree.Insert(8);
+            tree.Insert(10);
+
+            foreach(var y in tree.GetAncestors(4))
+            {
+                Console.WriteLine(y);
+            }
+
+           
         }
 
 
         static int Factorial(int num)
         {
-            if(num > 1)
+            if(num == 0)
             {
-                return num * Factorial(--num);
+                return 1;
             }
-
-            return 1;
+            
+            return num * Factorial(--num);
+    
         }
 
        
