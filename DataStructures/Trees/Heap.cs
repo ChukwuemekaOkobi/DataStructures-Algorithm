@@ -9,9 +9,9 @@ namespace DataStructures.Trees
     public class Heap
     {
 
-        private int[] Items;
+        private readonly int[] Items;
 
-        public int Count { get; set; }
+        public int Count { get; private set; }
         public Heap()
         {
             Items = new int[10];
@@ -34,7 +34,6 @@ namespace DataStructures.Trees
             Count++; 
         }
 
-
         public int Remove()
         {
             if(Count == 0)
@@ -51,11 +50,11 @@ namespace DataStructures.Trees
 
         }
 
-
         public bool IsEmpty()
         {
             return Count == 0; 
         }
+        
         private void BubbleDown(int index)
         {
             while(index<= Count && !IsValidParent(index))
@@ -67,7 +66,16 @@ namespace DataStructures.Trees
                 index = largeChildIndex;
             }
         }
+        private void BubbleUp(int index)
+        {
+            while (index > 0 && Items[index] > Items[GetParentIndex(index)])
+            {
+                Swap(index, GetParentIndex(index));
 
+                index = GetParentIndex(index);
+            }
+
+        }
         private int GetLargeChildIndex(int index)
         {
             if (!HasLeftChild(index))
@@ -77,20 +85,20 @@ namespace DataStructures.Trees
 
             if (!HasRightChild(index))
             {
-                return getLeftChildIndex(index);
+                return GetLeftChildIndex(index);
             }
-             return   Items[getLeftChildIndex(index)] > Items[getRightChildIndex(index)]
-                    ? getLeftChildIndex(index) : getRightChildIndex(index);
+             return   Items[GetLeftChildIndex(index)] > Items[GetRightChildIndex(index)]
+                    ? GetLeftChildIndex(index) : GetRightChildIndex(index);
 
         }
         private bool HasLeftChild(int index)
         {
-            return getLeftChildIndex(index) <= Count;
+            return GetLeftChildIndex(index) <= Count;
         }
 
         private bool HasRightChild(int index)
         {
-            return getRightChildIndex(index) <= Count; 
+            return GetRightChildIndex(index) <= Count; 
         }
         private bool IsValidParent(int index)
         {
@@ -99,32 +107,24 @@ namespace DataStructures.Trees
             }
             if (!HasRightChild(index))
             {
-                return Items[index] >= Items[getLeftChildIndex(index)];
+                return Items[index] >= Items[GetLeftChildIndex(index)];
             }
-            return Items[index] >= Items[getLeftChildIndex(index)] &&
-                Items[index] >= Items[getRightChildIndex(index)];
+            return Items[index] >= Items[GetLeftChildIndex(index)] &&
+                Items[index] >= Items[GetRightChildIndex(index)];
         }
-        private int getLeftChildIndex(int index)
+       
+        private static int GetLeftChildIndex(int index)
         {
             return index * 2 + 1;
         }
 
-        private int getRightChildIndex(int index)
+        private static int GetRightChildIndex(int index)
         {
             return index * 2 + 2; 
         }
 
-        private void BubbleUp(int index)
-        {
-            while(index > 0 && Items[index] > Items[getParentIndex(index)])
-            {
-                Swap(index, getParentIndex(index));
-
-                index = getParentIndex(index); 
-            }
-
-        }
-        private int getParentIndex (int index)
+        
+        private static int GetParentIndex (int index)
         {
             return (index - 1) / 2;
         }
