@@ -6,7 +6,16 @@ using System.Threading.Tasks;
 
 namespace ProblemsAndSolutions.Challenges
 {
-    class Heapify
+    /// <summary>
+    /// Turn an array into a heap inPlace
+    /// </summary>
+    public class Heapify
     {
+
+        public static void Change(int[] nums)
+        {
+
+            
+        }
     }
 }

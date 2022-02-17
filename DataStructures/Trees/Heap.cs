@@ -51,6 +51,7 @@ namespace DataStructures.Trees
 
         }
 
+
         public bool IsEmpty()
         {
             return Count == 0; 
@@ -110,7 +111,7 @@ namespace DataStructures.Trees
 
         private int getRightChildIndex(int index)
         {
-            return index * 2 + 1; 
+            return index * 2 + 2; 
         }
 
         private void BubbleUp(int index)
