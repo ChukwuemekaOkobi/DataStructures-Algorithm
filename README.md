@@ -11,8 +11,10 @@ There are used to solve different problems
 - Stack 
 - Queues 
 - HashTable | Dictionary
+- Binary Tree
+- AVL Tree 
 
-### Problems And Solution 
+### Problems And Solutions
 This Section contains difference code problems and solutions 
 - Patterns 
 - Dynamic Programing 

@@ -2,6 +2,7 @@
 {
     public class Node
     {
+        public int Height { get; set; }
         public int Value { get; private set; }
 
         public Node LeftChild { get; set; }

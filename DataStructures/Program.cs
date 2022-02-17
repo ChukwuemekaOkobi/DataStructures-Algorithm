@@ -9,6 +9,7 @@ using DataStructures.HashTable;
 using System.Linq;
 using System.Diagnostics;
 using DataStructures.Tree;
+using DataStructures.Trees;
 
 namespace MainProject
 {
@@ -17,40 +18,21 @@ namespace MainProject
         static void Main(string[] args)
         {
 
-            BinaryTree tree = new BinaryTree();
+            Heap heap = new Heap();
 
-            tree.Insert(7);
-            tree.Insert(4);
-            tree.Insert(9);
-            tree.Insert(1);
-            tree.Insert(6);
-            tree.Insert(8);
-            tree.Insert(10);
+            heap.Insert(45);
+            heap.Insert(23);
+            heap.Insert(89);
+            heap.Insert(67);
+            heap.Insert(21);
+            heap.Insert(5);
+            heap.Insert(100);
+            heap.Insert(74);
 
-            foreach(var y in tree.GetAncestors(4))
-            {
-                Console.WriteLine(y);
-            }
+            heap.Remove();
 
-           
+            Console.WriteLine(heap);
         }
 
-
-        static int Factorial(int num)
-        {
-            if(num == 0)
-            {
-                return 1;
-            }
-            
-            return num * Factorial(--num);
-    
-        }
-
-       
-
-       
-
-      
     }
 }
