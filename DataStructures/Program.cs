@@ -18,20 +18,24 @@ namespace MainProject
         static void Main(string[] args)
         {
 
-            Heap heap = new Heap();
+            TrieWithHashMap tries = new TrieWithHashMap();
 
-            heap.Insert(45);
-            heap.Insert(23);
-            heap.Insert(89);
-            heap.Insert(67);
-            heap.Insert(21);
-            heap.Insert(5);
-            heap.Insert(100);
-            heap.Insert(74);
+            tries.Insert("car");
+            tries.Insert("care");
 
-            heap.Remove();
+            tries.Insert("card");
+            tries.Insert("egg");
+            tries.Insert("careful");
+            tries.Insert("elephant");
+            tries.Insert("elizabeth");
 
-            Console.WriteLine(heap);
+
+            foreach(var item in tries.AutoComplete("el"))
+            {
+                Console.WriteLine(item);
+            }
+
+         
         }
 
     }

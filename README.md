@@ -13,6 +13,13 @@ There are used to solve different problems
 - HashTable | Dictionary
 - Binary Tree
 - AVL Tree 
+- Heap 
+- Trie
+- Graphs 
+- UnDirected Graph
+
+### Search Algorithms 
+
 
 ### Problems And Solutions
 This Section contains difference code problems and solutions 

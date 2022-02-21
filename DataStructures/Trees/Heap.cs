@@ -26,10 +26,9 @@ namespace DataStructures.Trees
                 return;
             }
 
-            var index = Count; 
-            Items[index] = value;
-
-            BubbleUp(index);
+            Items[Count] = value;
+            
+            BubbleUp(Count);
 
             Count++; 
         }
