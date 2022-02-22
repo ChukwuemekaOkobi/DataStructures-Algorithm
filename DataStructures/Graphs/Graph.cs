@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -246,9 +247,72 @@ namespace DataStructures.Graphs
             return sorted;  
         }
 
-        private void TopologicalSort(Node node, ISet<Node> visted, Stack<Node> stack)
+        private void TopologicalSort(Node node, ISet<Node> visited, Stack<Node> stack)
         {
+            if (visited.Contains(node))
+            {
+                return;
+            }
 
+            visited.Add(node); 
+
+            foreach(var item in AdjacencyList[node])
+            {
+                TopologicalSort(item, visited, stack); 
+            }
+
+            stack.Push(node); 
+        }
+
+        public bool HasCycle()
+        {
+            var nodes = Nodes.Values.ToHashSet();
+            var visiting = new HashSet<Node>();
+
+           
+            var visited = new HashSet<Node>(); 
+
+
+            while(nodes.Count != 0)
+            {
+                var current = nodes.First();
+
+                if(HasCycle(current, nodes, visiting, visited))
+                {
+                    return true;
+                }
+            }
+
+            return false; 
+        }
+
+        private bool HasCycle(Node node, ISet<Node> all, ISet<Node> visiting, ISet<Node> visited)
+        {
+            all.Remove(node);
+            visiting.Add(node); 
+
+            foreach(var item in AdjacencyList[node])
+            {
+                if (visited.Contains(item))
+                {
+                    continue;
+                }
+
+                if (visiting.Contains(item))
+                {
+                    return true; 
+                }
+
+                if(HasCycle(item, all, visiting, visited))
+                {
+                    return true;
+                }
+            }
+
+            visiting.Remove(node);
+            visited.Add(node);
+
+            return false;
         }
         public void PrintNodes()
         {

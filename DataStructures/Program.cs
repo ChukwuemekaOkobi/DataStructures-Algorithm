@@ -33,10 +33,29 @@ namespace MainProject
             graph.AddEdge("d", "c");
 
             graph.AddEdge("a", "c");
-        
+
+            var newGraph = new Graph();
+
+            newGraph.AddNode("X");
+            newGraph.AddNode("A");
+            newGraph.AddNode("B");
+            newGraph.AddNode("P");
+
+            newGraph.AddEdge("X", "A");
+
+            newGraph.AddEdge("X", "B");
+
+            newGraph.AddEdge("A", "P");
+
+            newGraph.AddEdge("B", "P");
+
+            newGraph.AddEdge("P", "A");
+
+            Console.WriteLine(string.Join(", ", newGraph.TopologicalSort()));
+
+            Console.WriteLine(newGraph.HasCycle());
 
 
-            graph.TraverseBreathFirst("a");
         }
 
     }
