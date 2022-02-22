@@ -87,7 +87,80 @@ namespace DataStructures.Graphs
         }
 
 
-        
+        /// <summary>
+        /// This method uses a stack to iteratively traverse the graph
+        /// </summary>
+        public void TraverseDepthFirstInteration(string label)
+        {
+            if (!Nodes.TryGetValue(label, out Node labelNode))
+            {
+                return;
+            }
+
+            Stack<Node> stack = new Stack<Node>();
+            ISet<Node> visited = new HashSet<Node>();
+
+            stack.Push(labelNode); 
+            while (stack.Count != 0)
+            {
+                var current = stack.Pop();
+
+                if (!visited.Contains(current))
+                {
+                    Console.WriteLine(current);
+                    visited.Add(current);
+
+                    foreach (var item in AdjacencyList[current])
+                    {
+                        if (!visited.Contains(item))
+                        {
+                           stack.Push(item);
+                        }
+                    }
+                }
+
+               
+            }
+        }
+
+        /// <summary>
+        /// This method uses a queue to iteratively traverse the graph
+        /// </summary>
+
+        public void TraverseBreathFirstInteration (string label)
+        {
+            if(!Nodes.TryGetValue(label, out Node labelNode))
+            {
+                return; 
+            }
+
+            Queue<Node> queue = new Queue<Node>();
+
+            queue.Enqueue(labelNode);
+
+            ISet<Node> visited = new HashSet<Node>(); 
+
+            while(queue.Count != 0)
+            {
+                var current = queue.Dequeue();
+
+
+                if (!visited.Contains(current))
+                {
+                    Console.WriteLine(current);
+                    visited.Add(current); 
+
+                    foreach(var item in AdjacencyList[current])
+                    {
+                        if (!visited.Contains(item))
+                        {
+                            queue.Enqueue(item); 
+                        }
+                    }
+                }
+                  
+            }
+        }
 
         public void TraverseDepthFirst(string label)
         {
@@ -113,6 +186,16 @@ namespace DataStructures.Graphs
 
             
         }
+
+        public void TraverseBreathFirst(string label)
+        {
+            if (!Nodes.TryGetValue(label, out Node labelNode))
+            {
+                return;
+            }
+        }
+
+        private void TraverseBreath()
         public void PrintNodes()
         {
             Console.WriteLine("[" +string.Join(",", Nodes.Keys) +"]");

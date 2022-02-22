@@ -32,8 +32,11 @@ namespace MainProject
 
             graph.AddEdge("c", "d");
 
+            graph.AddEdge("c", "b");
+            graph.AddEdge("b", "c");
 
-            graph.TraverseDepthFirst("c");
+
+            graph.TraverseBreathFirstInteration("a");
         }
 
     }
