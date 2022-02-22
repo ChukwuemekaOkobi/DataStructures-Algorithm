@@ -19,41 +19,23 @@ namespace MainProject
         static void Main(string[] args)
         {
 
-            Graph graph = new Graph();
-
-            graph.AddNode("a");
-            graph.AddNode("b");
-            graph.AddNode("c");
-            graph.AddNode("d");
-
-            graph.AddEdge("a", "b");
-
-            graph.AddEdge("b", "d");
-
-            graph.AddEdge("d", "c");
-
-            graph.AddEdge("a", "c");
-
-            var newGraph = new Graph();
+            var newGraph = new WeightedGraph();
 
             newGraph.AddNode("X");
             newGraph.AddNode("A");
             newGraph.AddNode("B");
             newGraph.AddNode("P");
 
-            newGraph.AddEdge("X", "A");
+            newGraph.AddEdge("X", "A",1);
 
-            newGraph.AddEdge("X", "B");
+            newGraph.AddEdge("X", "B",7);
 
-            newGraph.AddEdge("A", "P");
+            newGraph.AddEdge("A", "P",5);
 
-            newGraph.AddEdge("B", "P");
+            newGraph.AddEdge("B", "P",2);
 
-            newGraph.AddEdge("P", "A");
 
-            Console.WriteLine(string.Join(", ", newGraph.TopologicalSort()));
-
-            Console.WriteLine(newGraph.HasCycle());
+            newGraph.Print();
 
 
         }

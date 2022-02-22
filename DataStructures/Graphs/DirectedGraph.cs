@@ -7,17 +7,17 @@ using System.Threading.Tasks;
 namespace DataStructures.Graphs
 {
     /// <summary>
-    /// Graph using HashTables from Node list and 
+    /// Directed Graph using HashTables from Node list and 
     /// AdjacencyList 
     /// 
     /// Can use List<> or Adjacency Matrix
     /// </summary>
-    public class Graph
+    public class DirectGraph
     {
 
         private readonly Dictionary<string, Node> Nodes;
         private readonly Dictionary<Node, HashSet<Node>> AdjacencyList; 
-        public Graph()
+        public DirectGraph()
         {
             Nodes = new Dictionary<string, Node>();
 
@@ -328,22 +328,27 @@ namespace DataStructures.Graphs
                 }
             }
         }
+        
+
+        private class Node
+        {
+            public string Label { get; private set; }
+
+
+            public Node(string label)
+            {
+                Label = label;
+            }
+
+            public override string ToString()
+            {
+                return $"{Label}";
+            }
+
+        }
+
     }
 
 
-    public class Node
-    {
-        public string Label { get; private set; }
-
-        public Node(string label)
-        {
-            Label = label;
-        }
-
-        public override string ToString()
-        {
-            return $"{Label}";
-        }
-
-    }
+    
 }
