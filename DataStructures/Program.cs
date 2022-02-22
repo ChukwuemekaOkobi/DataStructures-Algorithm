@@ -10,6 +10,7 @@ using System.Linq;
 using System.Diagnostics;
 using DataStructures.Tree;
 using DataStructures.Trees;
+using DataStructures.Graphs;
 
 namespace MainProject
 {
@@ -18,24 +19,21 @@ namespace MainProject
         static void Main(string[] args)
         {
 
-            TrieWithHashMap tries = new TrieWithHashMap();
+            Graph graph = new Graph();
 
-            tries.Insert("car");
-            tries.Insert("care");
+            graph.AddNode("a");
+            graph.AddNode("b");
+            graph.AddNode("c");
+            graph.AddNode("d");
 
-            tries.Insert("card");
-            tries.Insert("egg");
-            tries.Insert("careful");
-            tries.Insert("elephant");
-            tries.Insert("elizabeth");
+            graph.AddEdge("a", "b");
+
+            graph.AddEdge("a", "c");
+
+            graph.AddEdge("c", "d");
 
 
-            foreach(var item in tries.AutoComplete("el"))
-            {
-                Console.WriteLine(item);
-            }
-
-         
+            graph.TraverseDepthFirst("c");
         }
 
     }
