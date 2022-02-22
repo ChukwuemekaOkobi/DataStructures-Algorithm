@@ -28,15 +28,15 @@ namespace MainProject
 
             graph.AddEdge("a", "b");
 
+            graph.AddEdge("b", "d");
+
+            graph.AddEdge("d", "c");
+
             graph.AddEdge("a", "c");
-
-            graph.AddEdge("c", "d");
-
-            graph.AddEdge("c", "b");
-            graph.AddEdge("b", "c");
+        
 
 
-            graph.TraverseBreathFirstInteration("a");
+            graph.TraverseBreathFirst("a");
         }
 
     }

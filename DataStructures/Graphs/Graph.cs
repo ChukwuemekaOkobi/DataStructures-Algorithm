@@ -90,7 +90,7 @@ namespace DataStructures.Graphs
         /// <summary>
         /// This method uses a stack to iteratively traverse the graph
         /// </summary>
-        public void TraverseDepthFirstInteration(string label)
+        public void TraverseDepthFirstIteration(string label)
         {
             if (!Nodes.TryGetValue(label, out Node labelNode))
             {
@@ -127,7 +127,7 @@ namespace DataStructures.Graphs
         /// This method uses a queue to iteratively traverse the graph
         /// </summary>
 
-        public void TraverseBreathFirstInteration (string label)
+        public void TraverseBreathFirstIteration (string label)
         {
             if(!Nodes.TryGetValue(label, out Node labelNode))
             {
@@ -193,9 +193,63 @@ namespace DataStructures.Graphs
             {
                 return;
             }
+
+            var queue = new Queue<Node>();
+            queue.Enqueue(labelNode); 
+
+            TraverseBreath( new HashSet<Node>(), queue);
         }
 
-        private void TraverseBreath()
+        private void TraverseBreath( ISet<Node> visited, Queue<Node> queue)
+        {
+            if(queue.Count == 0)
+            {
+                return;
+            }
+
+            var current = queue.Dequeue();
+           
+            if (!visited.Contains(current))
+            {
+                Console.WriteLine(current);
+                visited.Add(current);
+
+                foreach (var item in AdjacencyList[current])
+                {
+                    if (!visited.Contains(item))
+                    {
+                        queue.Enqueue(item);
+                    }
+                }
+                TraverseBreath(visited, queue);
+            }
+
+        }
+        
+        public List<string> TopologicalSort()
+        {
+            var stack = new Stack<Node>();
+            var visited = new HashSet<Node>(); 
+
+            foreach(var item in Nodes.Values)
+            {
+                TopologicalSort(item, visited, stack); 
+            }
+
+            var sorted = new List<string>(); 
+
+            while(stack.Count != 0)
+            {
+                sorted.Add(stack.Pop().Label);
+            }
+
+            return sorted;  
+        }
+
+        private void TopologicalSort(Node node, ISet<Node> visted, Stack<Node> stack)
+        {
+
+        }
         public void PrintNodes()
         {
             Console.WriteLine("[" +string.Join(",", Nodes.Keys) +"]");
