@@ -12,12 +12,12 @@ namespace DataStructures.Graphs
     /// 
     /// Can use List<> or Adjacency Matrix
     /// </summary>
-    public class DirectGraph
+    public class DirectedGraph
     {
 
         private readonly Dictionary<string, Node> Nodes;
         private readonly Dictionary<Node, HashSet<Node>> AdjacencyList; 
-        public DirectGraph()
+        public DirectedGraph()
         {
             Nodes = new Dictionary<string, Node>();
 

@@ -21,21 +21,21 @@ namespace MainProject
 
             var newGraph = new WeightedGraph();
 
-            newGraph.AddNode("X");
             newGraph.AddNode("A");
             newGraph.AddNode("B");
-            newGraph.AddNode("P");
+            newGraph.AddNode("C");
 
-            newGraph.AddEdge("X", "A",1);
+            newGraph.AddEdge("A", "B",1);
 
-            newGraph.AddEdge("X", "B",7);
+            newGraph.AddEdge("B", "C",7);
 
-            newGraph.AddEdge("A", "P",5);
-
-            newGraph.AddEdge("B", "P",2);
+            newGraph.AddEdge("A", "C",15);
 
 
-            newGraph.Print();
+
+            Console.WriteLine(newGraph.ShortestDistance("A", "C"));
+
+            Console.WriteLine(newGraph.ShortestPath("A", "C"));
 
 
         }

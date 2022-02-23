@@ -175,8 +175,5 @@ namespace DataStructures.Queues
         }
     }
 
-    public class PriorityQueue
-    {
 
-    }
 }

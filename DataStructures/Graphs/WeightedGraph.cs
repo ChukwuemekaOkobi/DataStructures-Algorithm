@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DataStructures.Queues;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,6 +15,7 @@ namespace DataStructures.Graphs
     {
         private readonly Dictionary<string, Node> Nodes;
        
+        
         public WeightedGraph()
         {
             Nodes = new Dictionary<string, Node>();
@@ -48,6 +50,168 @@ namespace DataStructures.Graphs
 
         }
 
+
+        /// <summary>
+        /// Using Distra shortest path algorithm
+        /// </summary>
+        /// <param name="from"></param>
+        /// <param name="to"></param>
+        /// <returns></returns>
+        public int ShortestDistance(string from, string to)
+        {
+            if(!Nodes.TryGetValue(from, out Node fromNode))
+            {
+                return  0; 
+            }
+
+            if(!Nodes.TryGetValue(to, out Node toNode))
+            {
+                return 0; 
+            }
+
+            var queue = new PriorityQueue<Node, int>();
+
+            var distances = new Dictionary<Node, int>();
+           
+            var visited = new HashSet<Node>();
+
+            foreach (var node in Nodes.Values)
+            {
+                distances.Add(node, int.MaxValue); 
+            }
+
+            distances[fromNode] = 0;
+         
+            queue.Enqueue(fromNode, 0);
+
+            //Breath First Traversal
+            while (queue.Count != 0)
+            {
+                var current = queue.Dequeue();
+
+                visited.Add(current); 
+
+                foreach(var edge in current.GetEdges())
+                {
+                    if (!visited.Contains(edge.To))
+                    {
+                        var newDistance = distances[current] + edge.Weight; 
+                        if(newDistance < distances[edge.To])
+                        {
+                            distances[edge.To] = newDistance;
+                            queue.Enqueue(edge.To, newDistance); 
+                        }
+                      
+                    }
+
+                }
+            }
+
+            return distances[toNode]; 
+        }
+
+        public Path ShortestPath(string from , string to)
+        {
+            if (!Nodes.TryGetValue(from, out Node fromNode))
+            {
+                return null;
+            }
+
+            if (!Nodes.TryGetValue(to, out Node toNode))
+            {
+                return null;
+            }
+
+            var queue = new PriorityQueue<Node, int>();
+
+            var distances = new Dictionary<Node, int>();
+
+            var previousNodes = new Dictionary<Node, Node>();
+
+            var visited = new HashSet<Node>();
+
+            foreach (var node in Nodes.Values)
+            {
+                distances.Add(node, int.MaxValue);
+            }
+
+            distances[fromNode] = 0;
+
+            queue.Enqueue(fromNode, 0);
+
+            //Breath First Traversal
+            while (queue.Count != 0)
+            {
+                var current = queue.Dequeue();
+
+                visited.Add(current);
+
+                foreach (var edge in current.GetEdges())
+                {
+                    if (!visited.Contains(edge.To))
+                    {
+                        var newDistance = distances[current] + edge.Weight;
+                        if (newDistance < distances[edge.To])
+                        {
+                            distances[edge.To] = newDistance;
+
+                            previousNodes[edge.To] = current;
+                            
+                            queue.Enqueue(edge.To, newDistance);
+                        }
+
+                    }
+
+                }
+            }
+
+            var previous = previousNodes[toNode];
+            var path = new Path();
+
+            path.Add(toNode.Label);
+
+            while (previous != null)
+            {
+                path.Add(previous.Label);
+                previous = previousNodes.ContainsKey(previous) ? previousNodes[previous] : null;
+            }
+
+            path.Reverse();
+            return path;
+        }
+        
+        public bool HasCycle()
+        {
+            var visited = new HashSet<Node>(); 
+
+            foreach(var node in Nodes.Values)
+            {
+                if(!visited.Contains(node) && HasCycle(node, null, visited))
+                {
+                    return true; 
+                }
+            }
+
+            return false;
+        }
+
+        private bool HasCycle(Node node, Node parent, ISet<Node> visited)
+        {
+            visited.Add(node); 
+            foreach(var edge in node.GetEdges())
+            {
+                if(edge.To == parent)
+                {
+                    continue;
+                }
+                if (visited.Contains(edge.To) || HasCycle(edge.To, node, visited))
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
         public void PrintNodes()
         {
             Console.WriteLine("[" + string.Join(",", Nodes.Keys) + "]");
@@ -111,6 +275,32 @@ namespace DataStructures.Graphs
             }
         }
 
+
+    }
+
+    public class Path
+    {
+        private List<string> nodes; 
+
+        public Path()
+        {
+            nodes = new List<string>();
+        }
+
+        public void Add(string node)
+        {
+            nodes.Add(node); 
+        }
+
+        public void Reverse()
+        {
+            nodes.Reverse(); 
+        }
+
+        public override string ToString()
+        {
+            return "["+ string.Join(",",nodes)+"]";
+        }
     }
 
 
