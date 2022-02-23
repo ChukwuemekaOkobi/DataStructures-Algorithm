@@ -24,18 +24,24 @@ namespace MainProject
             newGraph.AddNode("A");
             newGraph.AddNode("B");
             newGraph.AddNode("C");
+            newGraph.AddNode("D");
 
-            newGraph.AddEdge("A", "B",1);
+            newGraph.AddEdge("A", "B", 3);
 
-            newGraph.AddEdge("B", "C",7);
+            newGraph.AddEdge("B", "D", 4);
 
-            newGraph.AddEdge("A", "C",15);
+            newGraph.AddEdge("C", "D", 5);
+            newGraph.AddEdge("A", "C", 1);
+            newGraph.AddEdge("B", "C", 2);
 
 
 
-            Console.WriteLine(newGraph.ShortestDistance("A", "C"));
 
-            Console.WriteLine(newGraph.ShortestPath("A", "C"));
+            Console.WriteLine(newGraph.ShortestDistance("A", "D"));
+
+            Console.WriteLine(newGraph.ShortestPath("A", "D"));
+
+            Console.WriteLine(newGraph.MinimumSpaningTree());
 
 
         }

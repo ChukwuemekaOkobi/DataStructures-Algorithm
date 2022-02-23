@@ -32,7 +32,7 @@ namespace DataStructures.Graphs
             }
         }
 
-        public void AddEdge(string from, string to, int weight)
+        public void AddEdge( string from, string to, int weight)
         {
             if (!Nodes.TryGetValue(from, out Node fromNode))
             {
@@ -54,8 +54,6 @@ namespace DataStructures.Graphs
         /// <summary>
         /// Using Distra shortest path algorithm
         /// </summary>
-        /// <param name="from"></param>
-        /// <param name="to"></param>
         /// <returns></returns>
         public int ShortestDistance(string from, string to)
         {
@@ -67,6 +65,11 @@ namespace DataStructures.Graphs
             if(!Nodes.TryGetValue(to, out Node toNode))
             {
                 return 0; 
+            }
+
+            if (fromNode.GetEdges().Count == 0)
+            {
+                return 0;
             }
 
             var queue = new PriorityQueue<Node, int>();
@@ -120,6 +123,12 @@ namespace DataStructures.Graphs
             if (!Nodes.TryGetValue(to, out Node toNode))
             {
                 return null;
+            }
+
+            
+            if(fromNode.GetEdges().Count == 0)
+            {
+                return null; 
             }
 
             var queue = new PriorityQueue<Node, int>();
@@ -212,18 +221,70 @@ namespace DataStructures.Graphs
 
             return false;
         }
+        
+        public WeightedGraph MinimumSpaningTree()
+        {
+            var tree = new WeightedGraph();
+
+            var queue = new PriorityQueue<Edge, int>();
+
+            var firstNode = Nodes.Values.First();
+
+            foreach(var edge in firstNode.GetEdges())
+            {
+                queue.Enqueue(edge, edge.Weight); 
+            }
+
+            tree.AddNode(firstNode.Label);
+
+           
+
+            while(tree.Nodes.Count < Nodes.Count && queue.Count != 0)
+            {
+                var minEdge = queue.Dequeue();
+                var nextNode = minEdge.To; 
+
+                if (tree.ContainsNode(nextNode.Label))
+                {
+                    continue; 
+                }
+                 
+                tree.AddNode(nextNode.Label);
+                tree.AddEdge(minEdge.From.Label, nextNode.Label, minEdge.Weight);
+
+                foreach (var edge in nextNode.GetEdges())
+                {
+                    if (!tree.ContainsNode(edge.To.Label))
+                    {
+                        queue.Enqueue(edge, edge.Weight); 
+                    }
+
+                }
+            }
+
+            return tree;
+        }
+
+        public bool ContainsNode(string label)
+        {
+            return Nodes.ContainsKey(label); 
+        }
+
         public void PrintNodes()
         {
             Console.WriteLine("[" + string.Join(",", Nodes.Keys) + "]");
         }
-        public void Print()
+ 
+        public override string ToString()
         {
+            StringBuilder builder = new StringBuilder();
             foreach (var node in Nodes.Values)
             {
-                Console.WriteLine(node + " is connected to [" + string.Join(",", node.GetEdges()) + "]");
+                builder.Append(node + " is connected to [" + string.Join(",", node.GetEdges()) + "]\n");
             }
+            return builder.ToString();
         }
-
+        
         private class Node
         {
             public string Label { get; private set; }
@@ -247,6 +308,7 @@ namespace DataStructures.Graphs
             {
                 return Edges; 
             }
+          
 
             public override string ToString()
             {

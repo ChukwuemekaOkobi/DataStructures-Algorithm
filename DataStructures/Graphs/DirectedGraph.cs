@@ -87,7 +87,10 @@ namespace DataStructures.Graphs
 
         }
 
-
+        public bool ContainsNode(string label)
+        {
+            return Nodes.ContainsKey(label);
+        }
         /// <summary>
         /// This method uses a stack to iteratively traverse the graph
         /// </summary>
