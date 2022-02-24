@@ -18,7 +18,21 @@ There are used to solve different problems
 - Graphs 
 - UnDirected Graph
 
+### Sorting Algorithms
+- Bubble Sort
+- Selection Sort 
+- Insertion Sort 
+- Merge Sort
+- Quick Sort 
+- Counting Sort
+- Bucket Sort
+
 ### Search Algorithms 
+- Linear Search
+- Binary Search
+- Jump Search
+- Exponential Search
+- Tenary Search
 
 
 ### Problems And Solutions
