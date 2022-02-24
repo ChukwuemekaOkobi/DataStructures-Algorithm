@@ -8,10 +8,9 @@ namespace ProblemsAndSolutions
         static void Main(string[] args)
         {
 
-            Console.WriteLine(StringProblems.NoOfVowels("hello"));
+            Console.WriteLine(StringProblems.IsPalindrome2("heh"));
+      
 
-            Console.WriteLine(StringProblems.ReverseLoop("hello"));
-            Console.WriteLine(StringProblems.ReverseStack("hello"));
         }
     }
 }
