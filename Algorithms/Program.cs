@@ -1,4 +1,5 @@
-﻿using Algorithms.Sorting;
+﻿using Algorithms.Searching;
+using Algorithms.Sorting;
 using System;
 
 namespace Algorithms
@@ -7,15 +8,12 @@ namespace Algorithms
     {
         static void Main(string[] args)
         {
-            int[] items = { 4, 5, 1, 6, 8, 0, 2 };
+            int[] items = { 4, 6, 8, 0, 2,7,3 };
 
 
-            BucketSort.Sort(items, 3);
+            Console.WriteLine(ExponentialSearch.Contains(items, 3));
 
-            foreach(var i in items)
-            {
-                Console.Write(i + ",");
-            }
+            Console.WriteLine("[" + string.Join(",", items) + "]");
 
         }
     }
