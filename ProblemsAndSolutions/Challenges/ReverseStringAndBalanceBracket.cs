@@ -9,7 +9,7 @@ namespace ProblemsAndSolutions.Challenges
     /// <summary>
     /// This Class contains problems involving stacks 
     /// </summary>
-    public class ReverseStringAndBalanceBracket
+    public class BalanceBracket
     {
         /// <summary>
         /// Find if a sentence has balanced brackets
@@ -57,30 +57,6 @@ namespace ProblemsAndSolutions.Challenges
             return stacks.Count == 0;
         }
 
-        /// <summary>
-        /// Reverse a String
-        /// </summary>
-        /// <param name="item"></param>
-        /// <returns></returns>
-        public string Reversed(string item)
-        {
-            if (string.IsNullOrWhiteSpace(item))
-            {
-                return null;
-            }
-            Stack<char> stack = new();
-
-            foreach (var n in item)
-            {
-                stack.Push(n);
-            }
-
-            StringBuilder builder = new();
-
-            while (stack.Count!=0)
-                builder.Append(stack.Pop());
-
-            return builder.ToString();
-        }
+       
     }
 }

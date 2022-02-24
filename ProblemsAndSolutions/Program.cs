@@ -7,9 +7,11 @@ namespace ProblemsAndSolutions
     {
         static void Main(string[] args)
         {
-            int[] item = { 4, 72, 8, 4, 3, 6, 5, 83, 45, 42, 98 };
 
-           
+            Console.WriteLine(StringProblems.NoOfVowels("hello"));
+
+            Console.WriteLine(StringProblems.ReverseLoop("hello"));
+            Console.WriteLine(StringProblems.ReverseStack("hello"));
         }
     }
 }
