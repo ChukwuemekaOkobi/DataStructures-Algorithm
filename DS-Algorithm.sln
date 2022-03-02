@@ -7,7 +7,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataStructures", "DataStruc
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProblemsAndSolutions", "ProblemsAndSolutions\ProblemsAndSolutions.csproj", "{4CE98D3A-1CC6-468E-9BF7-5E0F681B4B27}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Algorithms", "Algorithms\Algorithms.csproj", "{93FAC44B-BDE1-4F8C-9072-1F4CB2479D85}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Algorithms", "Algorithms\Algorithms.csproj", "{93FAC44B-BDE1-4F8C-9072-1F4CB2479D85}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Patterns", "Patterns\Patterns.csproj", "{1C8A2DD7-1D04-43F7-B4FB-C761549B732A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{93FAC44B-BDE1-4F8C-9072-1F4CB2479D85}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{93FAC44B-BDE1-4F8C-9072-1F4CB2479D85}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{93FAC44B-BDE1-4F8C-9072-1F4CB2479D85}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1C8A2DD7-1D04-43F7-B4FB-C761549B732A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1C8A2DD7-1D04-43F7-B4FB-C761549B732A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1C8A2DD7-1D04-43F7-B4FB-C761549B732A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1C8A2DD7-1D04-43F7-B4FB-C761549B732A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

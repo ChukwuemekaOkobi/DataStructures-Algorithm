@@ -7,7 +7,6 @@
 
   <ItemGroup>
     <Folder Include="DynamicPrograming\" />
-    <Folder Include="Patterns\" />
   </ItemGroup>
 
   <ItemGroup>

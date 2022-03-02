@@ -5,6 +5,4 @@
 
 ## Section 
 - Challenges
-- Patterns 
-- Dynamic Programming
  
