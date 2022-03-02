@@ -14,7 +14,7 @@ namespace Patterns._1_SlidingWindow
     /// </summary>
     public class AverageOfSubArray
     {
-        static readonly int[] array = { 1, 3, 2, 6, -1, 4, 1, 8, 2 };
+        
 
         /// <summary>
         /// Loop through the entire array and for each 5 elements 
