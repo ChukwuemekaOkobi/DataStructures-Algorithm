@@ -9,7 +9,7 @@ namespace Patterns
         {
 
             Console.WriteLine(LongestSubstringWithMaxKDistinctCharacters.Length("araaci", 1));
-
+            
         }
     }
 }

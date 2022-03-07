@@ -33,7 +33,7 @@ namespace Patterns._1_SlidingWindow
             int start = 0;
 
             var dict = new Dictionary<char,int>(); 
-            //araaci
+
             for(int i = 0; i< str.Length; i++)
             {
 
@@ -48,7 +48,6 @@ namespace Patterns._1_SlidingWindow
 
                 while (dict.Count > k)
                 {
- 
                     dict[str[start]]--; 
 
                     if(dict[str[start]] == 0)
@@ -56,15 +55,15 @@ namespace Patterns._1_SlidingWindow
                         dict.Remove(str[start]);
                     }
 
-                    start++; 
-              
-                }
+                    start++;
 
-                length = Math.Max(length, i-start +1);
+                }
+                length = Math.Max(length, i - start + 1);
 
             }
-
             return length; 
         }
+
+    
     }
 }
