@@ -8,7 +8,7 @@ namespace Patterns
         static void Main(string[] args)
         {
 
-            Console.WriteLine(LongestSubStringWithAllDistinctChar.LengthNoRepeating("abbbb"));
+            Console.WriteLine(LongestSubArrayWithReplacement.Length( 3, new[] { 0, 1, 0, 0, 1, 1, 0, 1, 1, 0, 0, 1, 1 }));
         }
     }
 }

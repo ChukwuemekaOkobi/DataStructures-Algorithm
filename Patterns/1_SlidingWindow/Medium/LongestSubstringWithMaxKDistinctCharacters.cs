@@ -37,13 +37,9 @@ namespace Patterns._1_SlidingWindow
             for(int i = 0; i< str.Length; i++)
             {
 
-                if (!dict.ContainsKey(str[i]))
+                if (!dict.TryAdd(str[i], 1))
                 {
-                    dict.Add(str[i], 1);
-                }
-                else
-                {
-                    dict[str[i]]++; 
+                    dict[str[i]] += 1;
                 }
 
                 while (dict.Count > k)
