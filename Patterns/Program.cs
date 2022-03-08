@@ -8,11 +8,11 @@ namespace Patterns
         static void Main(string[] args)
         {
 
-           var n = StringAnagram.FindStringAnagrams("aabcec",  "abc");
+            var n = WordsConcatenation.FindWordConcatenation("catfoxcat", new[] { "cat", "fox" });
 
-            foreach(var a in n)
+            foreach(var i in n)
             {
-                Console.Write(a + ", ");
+                Console.Write(i + " ,");
             }
         }
     }

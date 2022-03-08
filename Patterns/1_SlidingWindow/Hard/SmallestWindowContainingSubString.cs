@@ -35,5 +35,59 @@ namespace Patterns._1_SlidingWindow
     /// </summary>
     public class SmallestWindowContainingSubString
     {
+        public static string SubString(string str, string pattern)
+        {
+
+    
+            var dict = new Dictionary<char, int>();
+
+            foreach (var ch in pattern)
+            {
+                if (!dict.TryAdd(ch, 1))
+                {
+                    dict[ch]++;
+                }
+            }
+
+            int start = 0;
+            int match = 0;
+            int minLength = str.Length + 1;
+            int subStrStart = 0; 
+
+         
+            for (int end = 0; end < str.Length; end++)
+            {
+                if (dict.ContainsKey(str[end]))
+                {
+                    dict[str[end]]--; 
+                    if(dict[str[end]] >= 0)
+                    {
+                        match++; 
+                    }
+                }
+
+                while (match == pattern.Length)
+                {
+                    if (minLength > end - start + 1)
+                    {
+                        minLength = end - start + 1;
+                        subStrStart = start;
+                    }
+
+                    char leftChar = str[start++];
+                    if (dict.ContainsKey(leftChar))
+                    {
+                        // note that we could have redundant matching characters, therefore we'll decrement the
+                        // matched count only when a useful occurrence of a matched character is going out of the window
+                        if (dict[leftChar] == 0)
+                            match--;
+                        dict[leftChar]++;
+                    }
+                }
+            }
+
+            return minLength > str.Length ? "" : str.Substring(subStrStart, subStrStart + minLength-1);
+
+        }
     }
 }
