@@ -8,8 +8,7 @@ namespace Patterns
         static void Main(string[] args)
         {
 
-            Console.WriteLine(LongestSubstringWithMaxKDistinctCharacters.Length("araaci", 1));
-            
+            Console.WriteLine(LongestSubStringWithAllDistinctChar.LengthNoRepeating("abbbb"));
         }
     }
 }
