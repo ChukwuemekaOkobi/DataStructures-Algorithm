@@ -8,7 +8,12 @@ namespace Patterns
         static void Main(string[] args)
         {
 
-            Console.WriteLine(LongestSubArrayWithReplacement.Length( 3, new[] { 0, 1, 0, 0, 1, 1, 0, 1, 1, 0, 0, 1, 1 }));
+           var n = StringAnagram.FindStringAnagrams("aabcec",  "abc");
+
+            foreach(var a in n)
+            {
+                Console.Write(a + ", ");
+            }
         }
     }
 }
