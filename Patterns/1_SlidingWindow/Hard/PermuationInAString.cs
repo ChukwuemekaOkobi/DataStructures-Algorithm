@@ -40,6 +40,12 @@ namespace Patterns._1_SlidingWindow
     /// </summary>
     public class PermuationInAString
     {
+        /// <summary>
+        /// THis has time Complexity of O(N * K)
+        /// </summary>
+        /// <param name="str"></param>
+        /// <param name="pattern"></param>
+        /// <returns></returns>
         public static bool HasPermutation(string str, string pattern)
         {
             if(pattern.Length > str.Length)
@@ -87,6 +93,12 @@ namespace Patterns._1_SlidingWindow
             return false;
         }
     
+        /// <summary>
+        /// Time complexity of O(N + K)
+        /// </summary>
+        /// <param name="str"></param>
+        /// <param name="pattern"></param>
+        /// <returns></returns>
         public static bool HasPermutation2(string str, string pattern)
         {
             int windowStart = 0, matched = 0;

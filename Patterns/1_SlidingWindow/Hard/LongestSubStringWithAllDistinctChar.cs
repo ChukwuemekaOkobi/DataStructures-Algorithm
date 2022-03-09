@@ -22,6 +22,10 @@ namespace Patterns._1_SlidingWindow
     /// </summary>
     public class LongestSubStringWithAllDistinctChar
     {
+        /// <summary>
+        /// We use a Set to hold the unique character within a window
+        /// </summary>
+
         public static int LengthNoRepeating(string str)
         {
             if (string.IsNullOrWhiteSpace(str))
@@ -52,6 +56,10 @@ namespace Patterns._1_SlidingWindow
 
             return length;
         }
+
+        /// <summary>
+        ///  Using a Hash Table to keep the frequency of this unique variables 
+        /// </summary>
 
         public static int Length2(string str)
         {

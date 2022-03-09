@@ -1,4 +1,5 @@
 ﻿using Patterns._1_SlidingWindow;
+using Patterns._2_TwoPointers;
 using System;
 
 namespace Patterns
@@ -8,12 +9,10 @@ namespace Patterns
         static void Main(string[] args)
         {
 
-            var n = WordsConcatenation.FindWordConcatenation("catfoxcat", new[] { "cat", "fox" });
 
-            foreach(var i in n)
-            {
-                Console.Write(i + " ,");
-            }
+
+            Console.WriteLine(TripletSumCloseToTarget.SearchTriplet(new[] { 1, 0, 1, 1 }, 100));
+          
         }
     }
 }
