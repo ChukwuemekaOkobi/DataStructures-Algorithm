@@ -11,7 +11,7 @@ namespace Patterns
 
 
 
-            Console.WriteLine(TripletSumCloseToTarget.SearchTriplet(new[] { 1, 0, 1, 1 }, 100));
+            Console.WriteLine(BackspaceCompare.Compare("xp#o", "xzz#"));
           
         }
     }

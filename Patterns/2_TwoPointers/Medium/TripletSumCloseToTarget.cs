@@ -46,35 +46,38 @@ namespace Patterns._2_TwoPointers
             }
 
             return sum;
-        }
 
-        private static int Search(int target, int[] array, int leftPointer, int item)
-        {
-            int sudm = 0;
-            int rightPointer = array.Length - 1;
-
-            while (leftPointer < rightPointer)
+            //local function
+            static int Search(int target, int[] array, int leftPointer, int item)
             {
-                int sum = array[leftPointer] + array[rightPointer];
-                if (sum == target)
+                int sudm = 0;
+                int rightPointer = array.Length - 1;
+
+                while (leftPointer < rightPointer)
                 {
-                     rightPointer--;
+                    int sum = array[leftPointer] + array[rightPointer];
+                    if (sum == target)
+                    {
+                        rightPointer--;
+                    }
+                    else if (sum < target)
+                    {
+                        leftPointer++; //requires bigger sum
+                        sudm = Math.Max(sum + item, sudm);
+                    }
+                    else
+                    {
+                        rightPointer--; //requires lesser sums
+                    }
                 }
-                else if (sum < target)
-                {
-                    leftPointer++; //requires bigger sum
-                    sudm = Math.Max(sum + item , sudm);
-                }
-                else
-                {
-                    rightPointer--; //requires lesser sums
-                }
+
+                return sudm;
+
             }
 
-            return sudm; 
-    
         }
 
+     
         public static int SearchTriplet2(int[] arr, int targetSum)
         {
             if (arr == null || arr.Length < 3)
@@ -108,4 +111,7 @@ namespace Patterns._2_TwoPointers
         }
 
     }
+
+
+   
 }
