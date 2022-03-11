@@ -286,6 +286,23 @@ namespace DataStructures
             Last = newList.Last;
         }
 
+        public void ReverseInPlace()
+        {
+            LinkedListNode previous = null; 
+
+            while (First != null)
+            {
+                LinkedListNode Next = First.Next;
+
+                First.Next = previous;
+
+                previous = First;
+
+                First = Next; 
+            }
+            First = previous; 
+        }
+
         public void RemoveLinkedListNode(LinkedListNode LinkedListNode)
         {
             if (LinkedListNode is null)

@@ -1,5 +1,5 @@
-﻿using Patterns._1_SlidingWindow;
-using Patterns._2_TwoPointers;
+﻿
+using Patterns._3_FastAndSlowPointers;
 using System;
 
 namespace Patterns
@@ -11,7 +11,7 @@ namespace Patterns
 
 
 
-            Console.WriteLine(BackspaceCompare.Compare("xp#o", "xzz#"));
+            Console.WriteLine(HappyNumber.Find(1));
           
         }
     }
