@@ -14,7 +14,7 @@ namespace ProblemsAndSolutions.Challenges
         /// </summary>
         /// <param name="x"></param>
         /// <returns></returns>
-       public bool IsPalindrome(int x)
+       public static bool IsPalindrome(int x)
         {
             if (x < 0)
             {
