@@ -1,6 +1,9 @@
 ﻿
 using Patterns._3_FastAndSlowPointers;
+using Patterns._4_MergeIntervals;
+using Patterns._5_CyclicSort;
 using System;
+using System.Collections.Generic;
 
 namespace Patterns
 {
@@ -9,10 +12,13 @@ namespace Patterns
         static void Main(string[] args)
         {
 
+    
 
-
-            Console.WriteLine(HappyNumber.Find(1));
-          
         }
+
+
+
     }
+
+
 }
