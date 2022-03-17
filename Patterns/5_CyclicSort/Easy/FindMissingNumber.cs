@@ -18,7 +18,7 @@ namespace Patterns._5_CyclicSort
     public class FindMissingNumber
     {
         /// <summary>
-        /// Time Complexity is NLogN
+        /// Time Complexity is O(NLogN)
         /// </summary>
 
         public static int Find(int[] nums)

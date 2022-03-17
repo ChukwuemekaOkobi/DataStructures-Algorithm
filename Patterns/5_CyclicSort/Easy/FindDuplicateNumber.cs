@@ -19,7 +19,7 @@ namespace Patterns._5_CyclicSort
     //   Input: [2, 4, 1, 4, 4]
     //Output: 4
     /// </summary>
-    public class FindDuplicateNumber 
+    public class FindDuplicateNumber
     { 
 
         public static int Find(int[] nums)
@@ -48,7 +48,7 @@ namespace Patterns._5_CyclicSort
             return i;
         }
 
-        public List<int> FindAllDuplicates(int[] nums)
+        public static List<int> FindAllDuplicates(int[] nums)
         {
             int i = 0;
             while (i < nums.Length)

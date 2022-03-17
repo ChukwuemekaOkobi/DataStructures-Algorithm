@@ -37,7 +37,7 @@ namespace Patterns._5_CyclicSort
 
                     else
                     {
-
+                       //skip duplicate values
                         while (i + 1 != nums.Length && value == nums[i + 1])
                         {
                             value = nums[i + 1];
