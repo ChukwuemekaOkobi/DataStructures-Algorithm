@@ -78,7 +78,7 @@ namespace Patterns._5_CyclicSort
 
                     if (nums[i] > 0 && nums[i] <= n && nums[i] - 1 != i && nums[i] != nums[nums[i] - 1])
                     {
-                        Swap(nums, nums[i - 1], i);
+                        Swap(nums, nums[i]-1, i);
                     }
                     else
                     {

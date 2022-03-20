@@ -264,9 +264,7 @@ namespace DataStructures.Tree
             Console.Write(root.Value + ", ");
         }
 
-       
 
-     
 
         /// <summary>
         /// Check is this three is a binary search tree

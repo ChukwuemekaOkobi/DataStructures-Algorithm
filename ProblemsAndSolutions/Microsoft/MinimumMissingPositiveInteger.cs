@@ -81,35 +81,31 @@ namespace ProblemsAndSolutions.Microsoft
   
         public static int FirstMissingPositive2(int [] nums)
         {
-            int i = 0;
             int n = nums.Length;
-
-
+            int i = 0;
 
             while (i < n)
             {
-                
-                    if (nums[i] > 0 && nums[i] <= n && nums[i]-1 != i  && nums[i] != nums[nums[i]-1])
-                    {
-                        Swap(nums, nums[i-1], i);
-                    }
-                    else
-                    {
-                        i++;
-                    }
-                
-            }
-
-            for(int j = 0; j< n; j++)
-            {
-                if(nums[j] != j + 1)
+                if (nums[i] > 0 && nums[i] <= n && nums[i] - 1 != i && nums[nums[i] - 1] != nums[i])
                 {
-                    return j + 1;
+
+                    Swap(nums, i, nums[i] - 1);
                 }
+                else
+                    ++i;
             }
 
-            return n +1;
+            for (int j = 0; j < n; ++j)
+            {
+                if (nums[j] != j + 1)
+                    return j + 1;
+            }
+
+            return n + 1;
+
         }
+
+     
 
  
 

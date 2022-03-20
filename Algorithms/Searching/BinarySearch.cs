@@ -24,7 +24,7 @@ namespace Algorithms.Searching
 
             while (left<= right)
             {
-                var pointer = (left + right) / 2;
+                var pointer = left + (right - left) / 2;
 
                 if (items[pointer] == item)
                 {

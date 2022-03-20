@@ -1,4 +1,5 @@
-﻿using ProblemsAndSolutions.Challenges;
+﻿
+using ProblemsAndSolutions.Microsoft;
 using System;
 
 namespace ProblemsAndSolutions
@@ -8,28 +9,8 @@ namespace ProblemsAndSolutions
         static void Main(string[] args)
         {
 
-            string[] array = new string[] {  "b-a","c-e","b-c","d-c"};
-
-            Graph graph = new Graph(); 
-
-            foreach(var str in array)
-            {
-                var ar = str.Split("-");
-
-                graph.AddNode(ar[0]);
-                graph.AddNode(ar[1]);
-
-                graph.AddEdge(ar[0], ar[1]);
-            }
-
-
-            Console.WriteLine(graph.FarthestPath());
-
-
-
-           
-
-
+           Console.WriteLine(PairingInteger.IsPairPossible(new int[] { 4, 2, 4, 2 }));
+           Console.WriteLine(PairingInteger.IsPairPossibleSet(new int[] { 7,7, 2 }));
         }
     }
 }
