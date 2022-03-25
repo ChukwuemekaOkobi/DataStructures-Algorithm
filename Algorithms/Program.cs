@@ -8,12 +8,16 @@ namespace Algorithms
     {
         static void Main(string[] args)
         {
-            int[] items = { 4, 6, 8, 0, 2,7,3 };
+            int[] items = { 4, 6, 8, 0, 2,7,3,3 };
 
+            SelectionSort.Sort(items);
 
-            Console.WriteLine(ExponentialSearch.Contains(items, 3));
+            foreach(var n in items)
+            {
+                Console.Write(n + " ");
+            }
+            Console.WriteLine();
 
-            Console.WriteLine("[" + string.Join(",", items) + "]");
 
         }
     }

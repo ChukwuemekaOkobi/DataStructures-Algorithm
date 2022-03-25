@@ -86,4 +86,39 @@ namespace Patterns.BreadthFirstSearch
             return result;
         }
     }
+
+
+    public class NextLevelSuccessor
+    {
+        public static TreeNode Find(TreeNode root, int num)
+        {
+            Queue<TreeNode> queue = new();
+
+            if (root == null)
+            {
+                return null; 
+            }
+
+            queue.Enqueue(root);
+
+            while (queue.Count != 0)
+            { 
+                 TreeNode node = queue.Dequeue();
+
+                if (node.left != null)
+                    queue.Enqueue(node.left);
+                if (node.right != null)
+                    queue.Enqueue(node.right);
+                
+                if (node.val == num)
+                {
+                    return queue.Peek(); 
+                }
+
+            }
+
+            return null; 
+        }
+   
+    }
 }

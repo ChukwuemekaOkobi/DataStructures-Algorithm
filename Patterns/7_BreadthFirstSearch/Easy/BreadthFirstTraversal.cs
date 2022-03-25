@@ -146,6 +146,7 @@ namespace Patterns.BreadthFirstSearch
         public int val { get; set; }
         public TreeNode left { get; set; }
         public TreeNode right { get; set; }
+        public TreeNode next { get; set; }
 
         public TreeNode(int x)
         {

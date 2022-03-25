@@ -13,7 +13,7 @@ namespace Patterns._1_SlidingWindow
 
         Example 1:
 
-        Input: String="aabdec", Pattern="abc"
+        Input: String="aabdec", Pattern=""
         Output: "abdec"
         Explanation: The smallest substring having all characters of the pattern is "abdec"
         Example 2:

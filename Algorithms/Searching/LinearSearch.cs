@@ -8,6 +8,7 @@ namespace Algorithms.Searching
     /// <summary>
     /// Iterate through all the value in the array 
     /// and return the index or -1 if not found
+    /// O(n)
     /// </summary>
     public class LinearSearch
     {

@@ -72,6 +72,6 @@ namespace Algorithms.Searching
             return Contains(items, item, left, pointer-1); 
         }
 
-      
+     
     }
 }

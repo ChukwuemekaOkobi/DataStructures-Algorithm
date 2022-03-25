@@ -58,7 +58,7 @@ namespace ProblemsAndSolutions.Microsoft
       
             }
 
-            return set.Count == 0 ? true : false; 
+            return set.Count == 0; 
         }
     }
 
