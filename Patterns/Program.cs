@@ -1,7 +1,8 @@
 ﻿using Patterns._6_InPlaceReversalLinkedList;
 using Patterns._8_DepthFirstSearch;
+using Patterns._9_TwoHeaps;
 using System;
-using System.Collections.Generic;
+using System.Linq;
 
 namespace Patterns
 {
@@ -10,28 +11,17 @@ namespace Patterns
         static void Main(string[] args)
         {
 
-
-            TreeNode root = new TreeNode(1);
-            root.left = new TreeNode(2);
-            root.right = new TreeNode(3);
-            root.left.left = new TreeNode(1);
-            root.right.left = new TreeNode(4);
-            root.right.right = new TreeNode(3);
-            root.right.left.left = new TreeNode(5);
+            SlidingWindowMedian median = new();
 
 
-            Console.WriteLine(MaximumDistinctPath.FindMaxDictinctPath(root));
-            
+            var item = median.FindSlidingWindowMedian(new int[]{ 1, 2, -1, 3, 5 }, 2);
 
-        }
-
-
-        public class Comparer : IComparer<int>
-        {
-            public int Compare(int x, int y)
+            foreach(var i in item)
             {
-                return y - x;
+                Console.Write(i + " ");
             }
+
+            Console.WriteLine();
         }
 
     }

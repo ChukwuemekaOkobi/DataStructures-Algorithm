@@ -10,7 +10,11 @@ namespace Patterns._8_DepthFirstSearch
         public static int CountPaths(TreeNode root, int S)
         {
             List<int> currentPath = new();
-            return CountPathsRecursive(root, S, currentPath);
+            int count = 0;
+
+            CountPathRecursive(root, S, currentPath, ref count);
+            return count;
+            //return CountPathsRecursive(root, S, currentPath);
         }
 
         private static int CountPathsRecursive(TreeNode currentNode, int S, List<int> currentPath)
@@ -42,6 +46,36 @@ namespace Patterns._8_DepthFirstSearch
             currentPath.RemoveAt(currentPath.Count - 1);
 
             return pathCount;
+        }
+    
+       
+        private static void CountPathRecursive(TreeNode treeNode, int s, List<int> currentPath, ref int count)
+        {
+            if(treeNode == null)
+            {
+                return; 
+            }
+
+            currentPath.Add(treeNode.val);
+            int tempSum = 0; 
+
+            // check if node equal sums; 
+
+            for(int i = currentPath.Count-1; i>=0; i--)
+            {
+                tempSum += currentPath[i]; 
+
+                if(tempSum == s)
+                {
+                    count++; 
+                }
+            }
+
+            CountPathRecursive(treeNode.left, s, currentPath, ref count);
+            CountPathRecursive(treeNode.right, s, currentPath, ref count);
+
+            //remove last item when bubbling up the recursive path
+            currentPath.RemoveAt(currentPath.Count-1);
         }
     }
 }

@@ -13,6 +13,7 @@ namespace Patterns._8_DepthFirstSearch
         public static int FindDiameter(TreeNode root)
         {
             CalculateHeight(root);
+           
             return treeDiameter;
         }
 
@@ -26,7 +27,9 @@ namespace Patterns._8_DepthFirstSearch
 
             // if the current node doesn't have a left or right subtree, we can't have
             // a path passing through it, since we need a leaf node on each side
-            if (leftTreeHeight != 0 && rightTreeHeight != 0)
+
+            // (currentNode.left != null && currentNode.right != null
+            if (leftTreeHeight != 0 && rightTreeHeight != 0)  
             {
 
                 // diameter at the current node will be equal to the height of left subtree +
@@ -41,6 +44,7 @@ namespace Patterns._8_DepthFirstSearch
             // left or right subtrees plus '1' for the current node
             return Math.Max(leftTreeHeight, rightTreeHeight) + 1;
         }
+
 
     }
 }

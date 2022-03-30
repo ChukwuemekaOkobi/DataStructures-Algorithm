@@ -9,4 +9,8 @@
     <ProjectReference Include="..\DataStructures\DataStructures.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Google\" />
+  </ItemGroup>
+
 </Project>

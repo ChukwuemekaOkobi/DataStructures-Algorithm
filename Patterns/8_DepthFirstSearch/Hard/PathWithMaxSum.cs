@@ -15,7 +15,13 @@ namespace Patterns._8_DepthFirstSearch
 
             globalMaximumSum = int.MinValue;
             FindMaximumPathSumRecursive(root);
-            return globalMaximumSum;
+
+            int max = int.MinValue;
+
+            PathMaxSum(root, ref max);
+
+
+            return max;
         }
 
         private static int FindMaximumPathSumRecursive(TreeNode currentNode)
@@ -42,5 +48,30 @@ namespace Patterns._8_DepthFirstSearch
             // the sums from left or right subtrees plus the value of the current node
             return Math.Max(maxPathSumFromLeft, maxPathSumFromRight) + currentNode.val;
         }
+    
+    
+        private static int PathMaxSum(TreeNode node, ref int max)
+        {
+            if(node == null)
+            {
+                return 0; 
+            }
+
+
+            int left = PathMaxSum(node.left, ref max);
+            int right = PathMaxSum(node.right, ref max);
+
+            left = Math.Max(left, 0);
+            right = Math.Max(right, 0);
+
+
+            max = Math.Max(left + right + node.val, max); 
+            
+
+
+            return Math.Max(left, right) + node.val; 
+
+        }
+    
     }
 }
