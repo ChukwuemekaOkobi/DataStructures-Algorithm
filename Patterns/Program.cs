@@ -1,8 +1,7 @@
-﻿using Patterns._6_InPlaceReversalLinkedList;
-using Patterns._8_DepthFirstSearch;
-using Patterns._9_TwoHeaps;
+﻿
 using System;
 using System.Linq;
+using Patterns._10_SubSet;
 
 namespace Patterns
 {
@@ -11,14 +10,21 @@ namespace Patterns
         static void Main(string[] args)
         {
 
-            SlidingWindowMedian median = new();
 
 
-            var item = median.FindSlidingWindowMedian(new int[]{ 1, 2, -1, 3, 5 }, 2);
+
+            var item = Permutations.Find(new int[] { 1,5,3});
 
             foreach(var i in item)
             {
-                Console.Write(i + " ");
+                Console.Write("[");
+                foreach(var j in i)
+                {
+                    Console.Write(j+ " ");
+                }
+
+                Console.WriteLine("]");
+               
             }
 
             Console.WriteLine();
