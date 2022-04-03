@@ -1,7 +1,8 @@
 ﻿
 using System;
+using System.Diagnostics;
 using System.Linq;
-using Patterns._10_SubSet;
+using Patterns._11_ModifiedBinarySearch;
 
 namespace Patterns
 {
@@ -10,24 +11,10 @@ namespace Patterns
         static void Main(string[] args)
         {
 
-
-
-
-            var item = Permutations.Find(new int[] { 1,5,3});
-
-            foreach(var i in item)
-            {
-                Console.Write("[");
-                foreach(var j in i)
-                {
-                    Console.Write(j+ " ");
-                }
-
-                Console.WriteLine("]");
-               
-            }
-
-            Console.WriteLine();
+            Console.WriteLine(NextLetter.SearchNextLetter(new char[] { 'a', 'c', 'f', 'h' }, 'f'));
+            Console.WriteLine(NextLetter.SearchNextLetter(new char[] { 'a', 'c', 'f', 'h' }, 'd'));
+            Console.WriteLine(NextLetter.SearchNextLetter(new char[] { 'a', 'c', 'f', 'h' }, 'm'));
+            Console.WriteLine(NextLetter.SearchNextLetter(new char[] { 'a', 'c', 'f', 'h' }, 'g'));
         }
 
     }
