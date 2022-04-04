@@ -3,6 +3,7 @@ using System;
 using System.Diagnostics;
 using System.Linq;
 using Patterns._11_ModifiedBinarySearch;
+using static Patterns._11_ModifiedBinarySearch.InfiniteArray;
 
 namespace Patterns
 {
@@ -11,10 +12,10 @@ namespace Patterns
         static void Main(string[] args)
         {
 
-            Console.WriteLine(NextLetter.SearchNextLetter(new char[] { 'a', 'c', 'f', 'h' }, 'f'));
-            Console.WriteLine(NextLetter.SearchNextLetter(new char[] { 'a', 'c', 'f', 'h' }, 'd'));
-            Console.WriteLine(NextLetter.SearchNextLetter(new char[] { 'a', 'c', 'f', 'h' }, 'm'));
-            Console.WriteLine(NextLetter.SearchNextLetter(new char[] { 'a', 'c', 'f', 'h' }, 'g'));
+            ArrayReader reader = new ArrayReader(new int[] { 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30 });
+
+            Console.WriteLine(InfiniteArray.Search(reader, 78));
+
         }
 
     }
