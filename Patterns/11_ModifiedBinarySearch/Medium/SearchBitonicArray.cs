@@ -28,7 +28,7 @@
 
         public static int Search(int[] arr, int key)
         {
- 
+
             int start = 0;
             int end = arr.Length - 1;
 
@@ -74,7 +74,7 @@
                 {
                     return mid;
                 }
-                else  if (isLower)
+                else if (isLower)
                 {
                     if (arr[mid] < key)
                     {
@@ -102,3 +102,4 @@
 
 
     }
+}
