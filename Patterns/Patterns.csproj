@@ -6,7 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="13_TopKElements\Easy\" />
+    <Folder Include="15_DynamicProgramming\" />
   </ItemGroup>
 
 </Project>
