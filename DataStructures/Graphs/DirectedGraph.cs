@@ -271,8 +271,6 @@ namespace DataStructures.Graphs
         {
             var nodes = Nodes.Values.ToHashSet();
             var visiting = new HashSet<Node>();
-
-           
             var visited = new HashSet<Node>(); 
 
 

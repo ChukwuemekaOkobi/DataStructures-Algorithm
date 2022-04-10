@@ -36,6 +36,39 @@ namespace Patterns
             return item.Count == 0; 
         }
 
+        public static bool IsEmpty<T>(this Queue<T> item)
+        {
+            return item.Count == 0;
+        }
+
+
+
+        public static void Remove<T>(this Queue<T> item, T element)
+        {
+            var list = new List<T>();
+
+            while (item.Count != 0)
+            {
+                if (item.Peek().Equals(element))
+                {
+                    item.Dequeue();
+                    break;
+                }
+                else
+                {
+                    item.TryDequeue(out T elem);
+
+                    list.Add((elem));
+                }
+            }
+            int i = 0;
+            while (i < list.Count)
+            {
+                item.Enqueue(list[i]);
+                i++;
+            }
+        }
+
         
     }
 

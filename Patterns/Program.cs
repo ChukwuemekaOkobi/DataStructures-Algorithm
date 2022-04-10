@@ -1,5 +1,6 @@
 ﻿
 using Patterns._13_TopKElements;
+using Patterns._16_TopologicalSort;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -15,11 +16,13 @@ namespace Patterns
 
 
 
-            var list = KClosestElement.ClosestTwoPoints(new int[] { 2, 5, 5, 7,8,9 }, 3, 6);
+            var list = MinimumHeightTree.MinHeight(new int[][] { new int[] { 0, 1 }, new int[] { 1, 2 }, new int[] { 1, 3 } }); 
 
-            Console.WriteLine(ScheduleTask.ScheduleTasks(new char[] { 'a', 'a', 'c' },3));
+            foreach(var l in list)
+            {
+                Console.WriteLine(l); 
+            }
 
-      
 
         }
 

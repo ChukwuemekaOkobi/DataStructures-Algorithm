@@ -68,4 +68,59 @@ namespace ProblemsAndSolutions.Google
             return num;
         }
     }
+
+
+    public class TreeClass
+    {
+        public TreeNode InvertTree(TreeNode root)
+        {
+            if (root == null)
+            {
+                return null;
+            }
+
+            TreeNode left = InvertTree(root.left);
+            TreeNode right = InvertTree(root.right);
+
+            root.left = right;
+            root.right = left;
+
+            return root;
+        }
+
+
+        public bool IsSame(TreeNode q, TreeNode p)
+        {
+            if(q == null && p == null)
+            {
+                return true;
+            }
+
+            if(q!=null || p != null)
+            {
+                return false; 
+            }
+
+
+            bool left = IsSame(q.left, p.left);
+            bool right = IsSame(q.right, p.right);
+
+            return left && right && p.val == q.val; 
+        }
+
+    }
+
+    public class TreeNode
+    {
+        public int val;
+        public TreeNode left;
+        public TreeNode right;
+        public TreeNode(int val = 0, TreeNode left = null, TreeNode right = null)
+        {
+            this.val = val;
+            this.left = left;
+            this.right = right;
+        }
+
+    }
 }
